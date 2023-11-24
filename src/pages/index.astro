@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import Banner from '../assets/banner.png';
+import CheckIcon from "../components/svg/CheckIcon.astro";
+
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/node_modules/htmx.org/dist/htmx.min.js" is:inline></script>
+    <title>Newsletter Sign-Up Form</title>
+  </head>
+  <body>
+    <div
+      class="absolute w-[928px] h-[641px] py-10 pr-10 pl-24 top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4 bg-white rounded-4xl flex items-center justify-between"
+    >
+      <div class="max-w-[376px]">
+        <div>
+          <h1>Stay Updated!</h1>
+          <p class="my-10">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul>
+            <li class="flex items-center h-8 even:my-4">
+              <CheckIcon />
+              <p class="pl-6">Product discovery and building what matters</p>
+            </li>
+            <li class="flex items-center h-8 even:my-4">
+              <CheckIcon />
+              <p class="pl-6">Measuring to ensure updates are a success</p>
+            </li>
+            <li class="flex items-center h-8 even:my-4">
+              <CheckIcon />
+              <p class="pl-6">And much more!</p>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-16">
+          <form class="transition-all" hx-post="/api/signup-newsletter" hx-validate="true">
+            <div class="flex flex-col">
+              <div class="text-sm leading-[150%] font-bold mb-2 flex justify-between">
+                <label for="email">Email address</label>
+                <span class="text-vermellion-default hidden invalid:block">Valid email required</span>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@company.com"
+              />
+            </div>
+            <button class="mt-10 w-[376px] h-[56px] flex-shrink-0 rounded-lg bg-navy-dark text-base text-white font-bold hover:shadow-default bg-gradient-to-r hover:from-[#FF6A3A] hover:from-0% hover:to-[#FF527B] hover:to-100% cursor-pointer" type="submit">Subscribe to monthly newsletter</button>
+          </form>
+        </div>
+      </div>
+      <div class="banner">
+        <Image src={Banner} alt="banner" />
+      </div>
+    </div>
+  </body>
+  </html>
+  
