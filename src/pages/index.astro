@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Banner from '../assets/banner.png';
+import BannerMobile from '../assets/banner-mobile.png';
 import CheckIcon from "../components/svg/CheckIcon.astro";
 
 import '../styles/global.css';
@@ -17,31 +18,35 @@ import '../styles/global.css';
     <title>Newsletter Sign-Up Form</title>
   </head>
   <body>
-    <div
-      class="absolute w-[928px] h-[641px] py-10 pr-10 pl-24 top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4 bg-white rounded-4xl flex items-center justify-between"
-    >
-      <div class="max-w-[376px]">
-        <div>
+    <!-- <div
+      class="absolute w-full h-full max-w-[928px] max-h-[641px] py-10 pr-10 pl-24 top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4 bg-white rounded-4xl flex items-center justify-between"
+    > -->
+    <div class="w-full h-full bg-none sm:bg-white flex flex-col sm:flex-row sm:items-center sm:justify-center xs:absolute xs:max-w-[928px] xs:max-h-[641px] xs:top-1/2 xs:left-1/2 xs:-translate-x-2/4 xs:-translate-y-2/4 xs:rounded-4xl">
+       <div class="w-full xs:hidden">
+        <Image src={BannerMobile} alt="banner" />
+      </div>
+      <div class="w-full h-fit pt-16 px-10 xs:py-0 xs:pr-16 sm:px-24 sm:m-0 flex flex-col items-center">
+        <div class="w-full">
           <h1>Stay Updated!</h1>
           <p class="my-10">
             Join 60,000+ product managers receiving monthly updates on:
           </p>
           <ul>
-            <li class="flex items-center h-8 even:my-4">
+            <li>
               <CheckIcon />
               <p class="pl-6">Product discovery and building what matters</p>
             </li>
-            <li class="flex items-center h-8 even:my-4">
+            <li>
               <CheckIcon />
               <p class="pl-6">Measuring to ensure updates are a success</p>
             </li>
-            <li class="flex items-center h-8 even:my-4">
+            <li>
               <CheckIcon />
               <p class="pl-6">And much more!</p>
             </li>
           </ul>
         </div>
-        <div class="mt-16">
+        <div class="w-full my-16">
           <form class="transition-all" hx-post="/api/signup-newsletter" hx-validate="true">
             <div class="flex flex-col">
               <div class="text-sm leading-[150%] font-bold mb-2 flex justify-between">
@@ -55,11 +60,11 @@ import '../styles/global.css';
                 placeholder="email@company.com"
               />
             </div>
-            <button class="mt-10 w-[376px] h-[56px] flex-shrink-0 rounded-lg bg-navy-dark text-base text-white font-bold hover:shadow-default bg-gradient-to-r hover:from-[#FF6A3A] hover:from-0% hover:to-[#FF527B] hover:to-100% cursor-pointer" type="submit">Subscribe to monthly newsletter</button>
+            <button class="mt-10 py-6 px-[4.6rem] w-full h-fit max-w-[376px] flex-shrink-0 rounded-lg bg-navy-dark text-base text-white font-bold hover:shadow-default bg-gradient-to-r hover:from-[#FF6A3A] hover:from-0% hover:to-[#FF527B] hover:to-100% cursor-pointer" type="submit">Subscribe to monthly newsletter</button>
           </form>
         </div>
       </div>
-      <div class="banner">
+      <div class="w-full hidden sm:block">
         <Image src={Banner} alt="banner" />
       </div>
     </div>

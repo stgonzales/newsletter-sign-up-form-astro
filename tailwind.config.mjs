@@ -5,6 +5,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			screens: {
+				xs: '376px'
+			},
 			fontFamily: {
 				sans: ["Roboto", ...defaultTheme.fontFamily.sans]
 			},
@@ -28,7 +31,7 @@ export default {
 			}
 		},
 		fontSize: {
-			heading: '5.6rem', // 56px
+			heading: '4rem', // 40px
 			base: '1.6rem', // 16px
 			sm: '1.2rem', // 12px
 		},

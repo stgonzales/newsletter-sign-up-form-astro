@@ -1,23 +1,18 @@
 :root {
-  @apply text-[62.5%] font-sans;
+  @apply text-[62.5%] font-sans text-navy-dark;
 }
 
 body {
-    @apply bg-navy-pale;
+    @apply bg-white sm:bg-navy-pale text-base leading-10 whitespace-normal;
 }
-
 h1 {
-    @apply text-heading leading-11 font-bold drop-shadow-xl;
-}
-
-p {
-    @apply text-base leading-6;
+  @apply text-heading leading-11 font-bold drop-shadow-xl;
 }
 
 li {
-  @apply flex items-center h-5;
+  @apply flex items-start h-full min-h-[2rem] even:my-4;
 }
 
 input {
-  @apply w-[376px] h-[56px] flex-shrink-0 rounded-lg border border-solid border-navy-dark/25 py-6 px-10 text-base placeholder:text-base placeholder:leading-[150%] placeholder:text-navy-dark placeholder:opacity-50 focus:outline focus:outline-1 focus:outline-navy-dark hover:outline hover:outline-1 hover:outline-vermellion-default cursor-pointer invalid:border-vermellion-default bg-vermellion-default/10;
+  @apply w-full max-w-[376px] max-h-[56px] flex-shrink-0 rounded-lg border border-solid border-navy-dark/25 py-6 px-10 text-base placeholder:text-base placeholder:leading-[150%] placeholder:text-navy-dark placeholder:opacity-50 focus:outline focus:outline-1 focus:outline-navy-dark hover:outline hover:outline-1 hover:outline-vermellion-default cursor-pointer invalid:border-vermellion-default bg-vermellion-default/10;
 }
